@@ -30,10 +30,10 @@ export const load: PageServerLoad = async ({ url }) => {
 		// Tạo query string cho API chỉ với các param có giá trị
 		const apiParams = new URLSearchParams();
 		if (sort) apiParams.set('sort', sort);
-		if (atkStart !== undefined) apiParams.set('atkgte', atkStart.toString());
-		if (atkEnd !== undefined) apiParams.set('atklte', atkEnd.toString());
-		if (defStart !== undefined) apiParams.set('defgte', defStart.toString());
-		if (defEnd !== undefined) apiParams.set('deflte', defEnd.toString());
+		if (atkStart !== undefined) apiParams.set('atk', 'gte' + atkStart.toString());
+		if (atkEnd !== undefined) apiParams.set('atk', 'lte' + atkEnd.toString());
+		if (defStart !== undefined) apiParams.set('def', 'gte' + defStart.toString());
+		if (defEnd !== undefined) apiParams.set('def', 'lte' + defEnd.toString());
 		if (type) apiParams.set('type', type.join(','));
 		if (race) apiParams.set('race', race.join(','));
 		if (attribute) apiParams.set('attribute', attribute.join(','));

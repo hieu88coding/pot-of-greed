@@ -49,8 +49,8 @@
 		if (type.length > 0) params.set('type', type.join(','));
 		if (race.length > 0) params.set('race', race.join(','));
 		if (attribute.length > 0) params.set('attribute', attribute.join(','));
-		if (name) params.set('name', name); // Chỉ thêm nếu name không rỗng
-		if (level !== 1) params.set('level', level.toString()); // Chỉ thêm nếu level không rỗng
+		if (name) params.set('name', name);
+		if (level !== 1) params.set('level', level.toString());
 
 		// Điều hướng đến URL với query params (nếu có)
 		const queryString = params.toString();
@@ -71,7 +71,7 @@
 <div>
 	<div>Level:</div>
 	<Slider
-		bind:level
+		bind:value={level}
 		min={1}
 		max={12}
 		step={1}
@@ -166,7 +166,7 @@
 
 <div class="columns margins" style="justify-content: flex-start;">
 	<div>
-		<Select bind:sortValue label="Select Menu">
+		<Select bind:sortValue label="Sort By">
 			{#each sortOptions as fruit}
 				<Option value={fruit}>{fruit}</Option>
 			{/each}
